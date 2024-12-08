@@ -1,0 +1,10 @@
+.wrapper {
+    text-align: center !important;
+    
+}
+
+.descriptionContainer {
+    text-align: justify !important;
+    margin: 0 auto;
+    max-width: 500px;
+}

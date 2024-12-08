@@ -1,0 +1,21 @@
+.wrapper {
+    text-align: center !important;
+    
+}
+
+.descriptionContainer {
+    text-align: justify !important;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.img {
+    width: 200px;
+    height: 200px;
+}
+
+.navlink {
+    display: inline-block;
+    color: rgb(17, 0, 255);
+    text-decoration: underline;
+}

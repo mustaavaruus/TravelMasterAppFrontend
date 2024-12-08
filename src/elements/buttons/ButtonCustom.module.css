@@ -1,0 +1,9 @@
+.btn {
+    width: 300px;
+    background: rgb(194,227,232);
+    background: linear-gradient(0deg, rgba(215,246,248,1) 0%, rgba(194,227,232,1) 50%);
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
