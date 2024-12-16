@@ -36,11 +36,11 @@
 
 .round {
     position: absolute;
-    top: 50px;
+    top: 20px;
     left: 50px;
     width: 100px;
     height: 100px;
-    background: linear-gradient(0deg, rgba(215,246,248,1) 0%, rgba(194,227,232,1) 50%);
+    background: linear-gradient(0deg, rgba(215,246,248,1) 0%, rgba(194,227,232,1) 50%) !important;
     border-radius: 50%;
 }
 

@@ -8,18 +8,30 @@ import { Check } from 'react-bootstrap-icons';
 const Answer = (props) => {
 
     const [answerText, setAnswerText] = useState(props.answerText ?? []);
+    const [checked, setChecked] = useState(props.checked);
+    const [radio, setRadio] = useState(false);
 
     useEffect(() => {
         setAnswerText(props.answerText);
+        setChecked(props.checked);
         console.log(props.answerText);
-    }, [props.answerText]);
+    }, [props.answerText, props.checked]);
+
+    const onChange = (e) => {
+        console.log("############################");
+    }
 
 
     return (
         <div className={s.wrapper}>
             <div className={s.left}>
-                <div className={s.round}>
-                    <Check className={s.check}/>
+                <div>
+                    <input className={s.round} type="radio" name="drone" value={radio}  onChange={(e) => onChange(e)}/>
+                    {/*
+                        checked
+                        ? <Check className={s.check}/>
+                        : null*/
+                    }
                 </div>
             </div>
             <div className={s.right}>

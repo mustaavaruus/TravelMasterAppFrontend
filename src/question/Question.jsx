@@ -12,12 +12,15 @@ const Question = (props) => {
 
     const [question, setQuestion] = useState(null);
 
+    const [number, setNumber] = useState(1);
+
     const navigator = useNavigate();
 
     const getQuestion = () => {
+        setQuestion(null);
         axios({
             method: 'get',
-            url: 'http://localhost:5064/api/Question/get/1',
+            url: `http://localhost:5024/api/Question/get/${number}`,
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
@@ -26,13 +29,18 @@ const Question = (props) => {
         }).then((data) => {
             console.log(data.data);
             setQuestion(data.data);
+            setNumber(number + 1);
             //localStorage.setItem('user', JSON.stringify(user.data));
             //navigator("/welcome");
         }).catch((err) => { alert(err?.response?.data?.detail ?? "Ошибка"); console.error(err); });
     }
 
     const nextQuestion = () => {
-        navigator("/generating");
+        if (number > 10) {
+            navigator("/generating");
+            return;
+        }
+        getQuestion();
     } 
 
     useEffect(() => {
@@ -45,7 +53,7 @@ const Question = (props) => {
             <div>
                 <p>Вопрос № {question?.questionText}</p>
                 {
-                    question?.imageTexts?.map((d) => <Answer answerText={d}/>)
+                    question?.imageTexts?.map((d, i) => <Answer answerText={d} />)
                 }
                 <div className={s.btnWrapper}>
                     <ButtonCustom text={"Далее"} onClick={nextQuestion} />

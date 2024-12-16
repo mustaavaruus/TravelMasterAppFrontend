@@ -1,10 +1,17 @@
 import { Col, Container, Image, Row } from 'react-bootstrap';
 import s from './ButtonCustom.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 function ButtonCustom(props) {
 
 
     const [text, setText] = useState(props.text);
+    const [disabled, setDisabled] = useState(props.disabled ?? false);
+
+    useEffect(() => {
+        setDisabled(props.disabled);
+    }, [
+        props.disabled
+    ]);
 
     const onClick = () => {
         console.log("on click!");
@@ -15,7 +22,11 @@ function ButtonCustom(props) {
 
     return (
         <div className={s.wrapper}>
-            <button className={s.btn} type="button" onClick={() => {onClick()}}>{text}</button>
+            <button 
+                className={s.btn} 
+                type="button" 
+                onClick={() => {onClick()}}
+                disabled={disabled}>{text}</button>
         </div>
     );
 }

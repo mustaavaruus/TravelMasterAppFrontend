@@ -22,7 +22,7 @@ const Auth = (props) => {
 
         axios({
             method: 'post',
-            url: 'http://localhost:5064/api/User/auth/',
+            url: 'http://localhost:5024/api/User/auth/',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json"

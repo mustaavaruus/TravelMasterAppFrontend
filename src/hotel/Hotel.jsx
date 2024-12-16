@@ -1,47 +1,42 @@
 import { Button, Container, Form, Image, Row } from 'react-bootstrap';
-import s from './ToursList.module.css';
+import s from './Hotel.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import InputCustom from '../elements/inputs/InputCustom';
 import ButtonCustom from '../elements/buttons/ButtomCustom';
 import BackCustom from '../elements/back/BackCustom';
 import { useNavigate } from 'react-router';
-import Answer from '../answer/Answer';
-import ToursItem from './tour-item/TourItem';
+import { StarFill } from 'react-bootstrap-icons';
 
-const ToursList = (props) => {
+const Hotel = (props) => {
 
-    const [tours, setTours] = useState([]);
-
-    const [choosedTourId, setChoosedTourId] = useState(null);
+    const [hotel, setHotel] = useState([]);
 
     const navigator = useNavigate();
 
     const getQuestion = () => {
         var token = JSON.parse(localStorage.getItem('user')).accessToken;
+
+        console.log(token);
         axios({
             method: 'get',
-            url: 'http://localhost:5024/api/Tour/get/all',
+            url: 'http://localhost:5024/api/Hotel/get/by-id/1',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
                 "accessToken": token,
             }
         }).then((data) => {
-            setTours(data.data);
+            console.log(data.data);
+            setHotel(data.data);
             //localStorage.setItem('user', JSON.stringify(user.data));
             //navigator("/welcome");
         }).catch((err) => { alert(err?.response?.data?.detail ?? "Ошибка"); console.error(err); });
     }
 
     const nextQuestion = () => {
-        navigator("/generating");
+        navigator("/date-choosing");
     } 
-
-    const onTourChoose = (e, id) => {
-        setChoosedTourId(id);
-        console.log(id);
-    }
 
     useEffect(() => {
         getQuestion();
@@ -53,21 +48,40 @@ const ToursList = (props) => {
             <div>
                 <div className={s.imgWrapper}>
                     <div className={s.imgTitleWrapper}>
-                        Сгенерированные туры
+                        Пхукет, Тайланд
                     </div>
 
                     <Image className={s.imgImage}
-                    src="https://img.freepik.com/premium-photo/beautiful-sunrise-sea-dawn-red-sea-sun-is-reflected-sea-palm-trees_251376-1437.jpg" />
+                    src="https://cdn2.tu-tu.ru/image/pagetree_node_data/1/50d90d074b95c8d20e36501c80d157eb/" />
                 </div>
-                {
-                    tours?.map((d, index) => <div onClick={(e, i) => onTourChoose(e, d?.id)}><ToursItem tour={d} /></div>)
-                }
+                <div>
+                    <h2>
+                        {hotel?.name}
+                    </h2>
+                    {
+                            (() => {
+                                const stars = [];
+
+                                for (let i = 0; i < hotel?.stars; i++) {
+                                    stars.push(
+                                        <StarFill className={s.starWrapper} />
+                                    );
+                                }
+                                return stars;
+                        })()}
+                    <p>
+                        {hotel?.description}
+                    </p>
+                    <p>
+                        от {hotel?.price} руб.
+                    </p>
+                </div>
                 <div className={s.btnWrapper}>
-                    <ButtonCustom text={"Далее"} onClick={nextQuestion} disabled={choosedTourId == null} />
+                    <ButtonCustom text={"Забронируйте сейчас"} onClick={nextQuestion} />
                 </div>
             </div>
         </div>
     );
 }
 
-export default ToursList;
+export default Hotel;

@@ -12,7 +12,7 @@ function Department() {
 
 
     const getAll = () => {
-        axios.get('http://localhost:5064/api/Department/get/all')
+        axios.get('http://localhost:5024/api/Department/get/all')
             .then(function (response) {
                 console.log(response);
                 setDepartments(response.data ?? []);

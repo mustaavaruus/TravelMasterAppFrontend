@@ -3,31 +3,69 @@ import Slider from '../slider/Slider';
 import s from './DateChoosing.module.css';
 import ButtonCustom from '../elements/buttons/ButtomCustom';
 import { useNavigate } from 'react-router';
+import { useState } from 'react';
 
 
 function DateChoosing() {
     const navigate = useNavigate();
 
-    const goToAuth = () => {
-        navigate("/auth");
+    const [begin, setBegin] = useState(null);
+    const [end, setEnd] = useState(null);
+
+    const goToTicketList = () => {
+        navigate("/trip-list");
     }
 
     const goToRegister = () => {
         navigate("/register");
     }
 
+    const isDisabled = () => {
+        return !(begin || end);
+    }
+
+    const dateValidate = () => {
+        if (!begin) {
+            alert("Ошибка! Не заполнено начало тура (Туда)");
+        }
+
+        if (!end) {
+            alert("Ошибка! Не заполнен конец тура (Обратно)");
+        }
+
+        if (begin == end) {
+            alert("Ошибка! Начало и конец тура совпадают");
+        }
+
+        if (begin > end) {
+            alert("Ошибка! Начало тура позже конца тура");
+        }
+    }
+
     return (
         <div className={s.wrapper}>
             <Container>
-                <div className={s.wrapper} xs={4} md={3}>
-                    <Image src="https://static.vecteezy.com/system/resources/thumbnails/023/358/444/small_2x/landscape-consists-of-terraced-plateaus-with-multicolored-waterfalls-and-3d-floating-islands-ai-generated-png.png" roundedCircle />
-                </div>
+            <br/>
+            <br/><br/>
+            <br/>
                 <Row>
-                    <h2>МаршрутМастер</h2>
+                    <Col>
+                        <label for="birthdaytime">Туда: </label>
+                        <input type="date" id="birthdaytime" name="birthdaytime" value={begin} onChange={(e) => setBegin(e.target.value)}/>
+                    </Col>
+
+                    <Col>
+                        <label for="birthdaytime">Обратно: </label>
+                        <input type="date" id="birthdaytime" name="birthdaytime" value={end} onChange={(e) => setEnd(e.target.value)}/>
+                    </Col>
                 </Row>
+                <br/><br/><br/><br/><br/>
                 <Row>
-                    <ButtonCustom text={"Войти"} onClick={goToAuth} />
-                    <ButtonCustom text={"Зарегистрироваться"} onClick={goToRegister} />
+                    <ButtonCustom 
+                        text={"Готово"} 
+                        onClick={goToTicketList}
+                        disabled={isDisabled} 
+                        />
                 </Row>
             </Container>
         </div>

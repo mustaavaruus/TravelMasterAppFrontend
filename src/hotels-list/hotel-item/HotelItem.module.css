@@ -1,0 +1,30 @@
+.wrapper {
+    display: inline-block;
+    margin: 5px;
+    width: 550px;
+    border-radius: 20px;
+}
+
+.imgWrapper {
+    width: 50%;
+    height: 250px;
+}
+
+.pic {
+    position: relative;
+}
+
+.rightWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background-color: rgba(237, 237, 237, 0.9);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.starWrapper {
+    color: yellow;
+}

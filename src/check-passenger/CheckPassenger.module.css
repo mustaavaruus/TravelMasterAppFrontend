@@ -1,0 +1,33 @@
+.wrapper {
+    margin: 0 auto;
+}
+
+.common {
+    background-color: white;
+    width: 50%;
+    min-height: 100px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.fields {
+    margin-bottom: 10px;
+}
+
+.sbp {
+    border: 1px solid gray;
+    
+}
+
+.card {
+    border: 1px solid gray;
+    width: 300px;
+    height: 150px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.icon {
+    font-size: 1.8em;
+}

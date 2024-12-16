@@ -1,0 +1,45 @@
+.wrapper {
+    display: inline-block;
+    margin: 5px;
+    width: 550px;
+    border-radius: 20px;
+}
+
+.imgWrapper {
+    width: 50%;
+    height: 250px;
+}
+
+.pic {
+    position: relative;
+}
+
+.rightWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 50%;
+    background-color: rgba(237, 237, 237, 0.9);
+    padding: 10px;
+    overflow: hidden;
+}
+
+.starWrapper {
+    color: yellow;
+}
+
+.baldText {
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+.ordinalText {
+    font-weight: 300;
+    color: grey;
+}
+
+.slimText {
+    font-weight: 200;
+    color: rgba(127, 127, 127, 0.5)
+}

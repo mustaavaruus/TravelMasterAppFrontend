@@ -1,0 +1,64 @@
+.wrapper {
+    margin: 0 auto;
+}
+
+.common {
+    
+    width: 50%;
+    min-height: 100px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+
+.fields {
+    margin-bottom: 10px;
+}
+
+.sbp {
+    border: 1px solid gray;
+    
+}
+
+.card {
+    border: 1px solid gray;
+    width: 300px;
+    height: 150px;
+    border-radius: 30px;
+    padding: 20px;
+}
+
+.pdf {
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.icon {
+    font-size: 1.8em;
+}
+
+.supportButton {
+    border-radius: 20px;
+    border: 2px solid grey;
+    text-align: center;
+    background-color: rgba(240, 240, 240, 0.2);
+}
+
+.logOutButton {
+    color: rgb(223, 49, 49);
+    text-align: center;
+}
+
+.navSocial {
+    display: inline-block;
+}
+
+.social {
+    font-size: 2em;
+    max-width: 40px;
+}
+
+.userLogo {
+    max-width: 100px;
+}

@@ -1,11 +1,11 @@
 import { Button, Container, Form, Image, Row } from 'react-bootstrap';
-import s from './TourItem.module.css';
+import s from './HotelItem.module.css';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Check, Star, StarFill } from 'react-bootstrap-icons';
 
 
-const ToursItem = (props) => {
+const HotelItem = (props) => {
 
     const [tour, setTour] = useState(props.tour);
 
@@ -19,7 +19,7 @@ const ToursItem = (props) => {
     return (
         <div className={s.wrapper}>
             <div className={s.pic}>
-                <div className={s.bottomWrapper}>
+                <div className={s.rightWrapper}>
                         {`${tour?.cityName}, ${tour?.countryName}`}
                     <br/>
                         от {`${tour?.price}`} руб.
@@ -35,7 +35,8 @@ const ToursItem = (props) => {
                                 }
                                 return stars;
                         })()}
-                    
+                    <p>{tour?.description}</p>
+                    {}
                 </div>
                 {<Image src={tour?.image} className={s.imgWrapper}/>}
             </div>
@@ -43,4 +44,4 @@ const ToursItem = (props) => {
     );
 }
 
-export default ToursItem;
+export default HotelItem;

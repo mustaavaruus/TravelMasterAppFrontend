@@ -12,7 +12,7 @@ function Provider() {
 
 
     const getAll = () => {
-        axios.get('http://localhost:5064/api/Provider/get/all')
+        axios.get('http://localhost:5024/api/Provider/get/all')
             .then(function (response) {
                 console.log(response);
                 setProviders(response.data ?? []);

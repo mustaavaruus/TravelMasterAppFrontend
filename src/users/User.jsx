@@ -12,7 +12,7 @@ function User() {
 
 
     const getAll = () => {
-        axios.get('http://localhost:5064/api/User/get/all')
+        axios.get('http://localhost:5024/api/User/get/all')
             .then(function (response) {
                 console.log(response);
                 setUsers(response.data ?? []);

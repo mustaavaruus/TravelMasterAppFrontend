@@ -20,14 +20,19 @@
 
 }
 
+.centralImageWrapper {
+    
+}
+
 .imgImage {
     border-radius: 10px;
+    max-width: 600px;
 }
 
 .imgTitleWrapper {
     position: absolute;
     bottom: 0;
     left: 0;
-    color: rgba(244, 244, 244, 0.5);
+    color: rgba(244, 244, 244, 0.9);
     font-size: 3em;
 }

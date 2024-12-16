@@ -1,0 +1,21 @@
+.inputCustom {
+    border: none;
+    background-color: transparent;
+    border: 2px solid rgb(177, 177, 177);
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
+
+input {border:0;outline:0;}
+input:focus {outline:none!important;  outline: none !important;}
+
+.inputCustomBody {
+    border: none !important;
+    border-radius: 0 !important;
+    background-color: transparent!important;
+    border-radius: 30px;
+    font-size: 1.2em;
+    padding:10px;
+}
+
+.inputCustomBody:focus {outline:none!important; outline: none !important;}

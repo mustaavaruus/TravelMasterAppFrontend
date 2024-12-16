@@ -12,7 +12,7 @@ function Product() {
 
 
     const getAll = () => {
-        axios.get('http://localhost:5064/api/Product/get/all')
+        axios.get('http://localhost:5024/api/Product/get/all')
             .then(function (response) {
                 console.log(response);
                 setProducts(response.data ?? []);

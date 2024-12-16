@@ -27,7 +27,7 @@ const Register = (props) => {
  
          axios({
              method: 'post',
-             url: 'http://localhost:5064/api/User/register/',
+             url: 'http://localhost:5024/api/User/register/',
              headers: {
                  "Accept": "application/json",
                  "Content-Type": "application/json"
