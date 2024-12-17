@@ -7,8 +7,8 @@ import { Link } from 'react-bootstrap-icons';
 function Success() {
     const navigate = useNavigate();
 
-    const goToQuestions = () => {
-        navigate("/question");
+    const goToUser = () => {
+        navigate("/user");
     }
 
     return (
@@ -26,7 +26,7 @@ function Success() {
                     <h4>Оплата прошла успешно!</h4>
                     <br/>
                     <br/>
-                    <p>Пройдите в <NavLink className={s.navlink} to="/user">Личный кабинет</NavLink>, чтобы
+                    <p>Пройдите в <NavLink onClick={goToUser} className={s.navlink} to="/user">Личный кабинет</NavLink>, чтобы
                     <br/>отслеживать информацию о вашем билете.</p>
                 </Row>
             </Container>
