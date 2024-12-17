@@ -20,6 +20,7 @@ const Question = (props) => {
 
     const getQuestion = () => {
         setQuestion(null);
+        setDisabled(true);
         axios({
             method: 'get',
             url: `http://localhost:5024/api/Question/get/${number}`,
