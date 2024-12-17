@@ -18,7 +18,9 @@ const Answer = (props) => {
     }, [props.answerText, props.checked]);
 
     const onChange = (e) => {
-        console.log("############################");
+        if (!!props.onClick) {
+            props.onClick();
+        }
     }
 
 

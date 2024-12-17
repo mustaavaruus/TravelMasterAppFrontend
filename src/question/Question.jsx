@@ -14,6 +14,8 @@ const Question = (props) => {
 
     const [number, setNumber] = useState(1);
 
+    const [disabled, setDisabled] = useState(true);
+
     const navigator = useNavigate();
 
     const getQuestion = () => {
@@ -47,16 +49,21 @@ const Question = (props) => {
         getQuestion();
     }, []);
 
+    const onAnswerChoose = () => {
+        console.log("choosed!");
+        setDisabled(false);
+    }
+
 
     return (
         <div className={s.wrapper}>
             <div>
-                <p>Вопрос № {question?.questionText}</p>
+                <p>Вопрос № {number} {question?.questionText}</p>
                 {
-                    question?.imageTexts?.map((d, i) => <Answer answerText={d} />)
+                    question?.imageTexts?.map((d, i) => <Answer onClick={onAnswerChoose} answerText={d} />)
                 }
                 <div className={s.btnWrapper}>
-                    <ButtonCustom text={"Далее"} onClick={nextQuestion} />
+                    <ButtonCustom text={"Далее"} onClick={nextQuestion} disabled={disabled} />
                 </div>
             </div>
         </div>
