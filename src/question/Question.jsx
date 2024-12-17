@@ -64,7 +64,7 @@ const Question = (props) => {
                     question?.imageTexts?.map((d, i) => <Answer onClick={onAnswerChoose} answerText={d} />)
                 }
                 <div className={s.btnWrapper}>
-                    <ButtonCustom text={"Далее"} onClick={nextQuestion} disabled={disabled} />
+                    <ButtonCustom text={"Далее"} onClick={nextQuestion}  />
                 </div>
             </div>
         </div>
