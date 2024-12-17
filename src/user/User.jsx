@@ -36,8 +36,13 @@ function User() {
         getUser();
     }, []);
 
-    const onSubmit = () => {
+    const onSupport = () => {
+        alert("TODO: ссылка на саппорт....");
+    }
 
+    const onLogout = () => {
+        localStorage.removeItem('user');
+        navigate("/")
     }
 
     return (
@@ -64,18 +69,18 @@ function User() {
                     <Clipboard />MOW_HKT.pdf
                 </div>
                 <h6>Соцсети</h6>
-                <NavLink  className={s.navSocial} to={user?.vk}>
+                <a className={s.navSocial} href={user?.vk}>
                     <Image className={s.social} src="https://upload.wikimedia.org/wikipedia/commons/2/21/VK.com-logo.svg" />
-                </NavLink >
-                <NavLink className={s.navSocial} to={user?.telegram}>
+                </a>
+                <a className={s.navSocial} href={user?.telegram}>
                     <Image className={s.social} src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Telegram_Messenger.png/800px-Telegram_Messenger.png" />
-                </NavLink >
-                <NavLink  className={s.navSocial} to={user?.instagram}>
+                </a>
+                <a className={s.navSocial} href={user?.instagram}>
                     <Image className={s.social} src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1200px-Instagram_icon.png" />
-                </NavLink >
+                </a>
                 <br /><br />
-                <div className={s.supportButton}>Служба поддержки</div>
-                <div className={s.logOutButton}>Выйти из профиля</div>
+                <div onClick={onSupport} className={s.supportButton}>Служба поддержки</div>
+                <div onClick={onLogout} className={s.logOutButton}>Выйти из профиля</div>
             </div>
         </div>
     );

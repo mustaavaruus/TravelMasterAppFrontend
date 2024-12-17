@@ -45,9 +45,17 @@
     background-color: rgba(240, 240, 240, 0.2);
 }
 
+.supportButton:hover {
+    cursor: pointer;
+}
+
 .logOutButton {
     color: rgb(223, 49, 49);
     text-align: center;
+}
+
+.logOutButton:hover {
+    cursor: pointer;
 }
 
 .navSocial {

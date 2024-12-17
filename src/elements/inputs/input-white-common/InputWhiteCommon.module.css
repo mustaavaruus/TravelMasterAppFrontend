@@ -16,6 +16,7 @@ input:focus {outline:none!important;  outline: none !important;}
     border-radius: 30px;
     font-size: 1.2em;
     padding:10px;
+    width: 80%;
 }
 
 .inputCustomBody:focus {outline:none!important; outline: none !important;}
