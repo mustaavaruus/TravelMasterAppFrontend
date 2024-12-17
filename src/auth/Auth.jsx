@@ -9,8 +9,8 @@ import { useNavigate } from 'react-router';
 
 const Auth = (props) => {
 
-    const [phoneUser, setPhoneUser] = useState();
-    const [emailUser, setEmailUser] = useState();
+    const [phoneUser, setPhoneUser] = useState("");
+    const [emailUser, setEmailUser] = useState("");
     const [passwordUser, setPasswordUser] = useState("");
 
     const navigator = useNavigate();

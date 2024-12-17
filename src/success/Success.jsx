@@ -3,6 +3,7 @@ import Slider from '../slider/Slider';
 import s from './Success.module.css';
 import ButtonCustom from '../elements/buttons/ButtomCustom';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-bootstrap-icons';
 function Success() {
     const navigate = useNavigate();
 

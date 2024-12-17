@@ -21,7 +21,7 @@ function DateChoosing() {
     }
 
     const isDisabled = () => {
-        return !(begin || end);
+        return !(begin && end);
     }
 
     const dateValidate = () => {
