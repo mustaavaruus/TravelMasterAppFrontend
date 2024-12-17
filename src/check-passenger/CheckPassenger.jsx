@@ -60,8 +60,10 @@ function CheckPassenger() {
                 <hr/>
                 <p>{`${price}руб`}</p>
                 <p>за одного пассажира</p>
+                <div className={s.buttonWrapper}>
+                    <ButtonCustom text={"Оплатить"} onClick={onSubmit} />
+                </div>
                 
-                <ButtonCustom text={"Оплатить"} onClick={onSubmit} />
            </div>
         </div>
     );

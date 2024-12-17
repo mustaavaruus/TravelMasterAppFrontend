@@ -8,6 +8,7 @@ import InputWhiteCommon from '../elements/inputs/input-white-common/InputWhiteCo
 import { useState } from 'react';
 function FillPassenger() {
 
+     const [passenger, setPassenger] = useState(null);
 
     const [passSurname, setPassSurname] = useState(null);
     const [passName, setPassName] = useState(null);
@@ -25,7 +26,7 @@ function FillPassenger() {
     const navigate = useNavigate();
 
     const onSubmit = () => {
-
+          navigate("/check-passenger");
     }
 
     return (
@@ -54,7 +55,9 @@ function FillPassenger() {
                 <p>{`${price}руб`}</p>
                 <p>за одного пассажира</p>
                 <hr/>
-                <ButtonCustom text={"Войти"} onClick={onSubmit} />
+                <div className={s.buttonWrapper}>
+                    <ButtonCustom text={"Продолжить"} onClick={onSubmit} />
+                </div>
            </div>
         </div>
     );
