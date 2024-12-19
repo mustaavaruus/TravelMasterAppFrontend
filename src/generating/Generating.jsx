@@ -13,7 +13,7 @@ function Generating() {
 
     useEffect(() => {
         setTimeout(function () {
-            navigate("/hotels-list");
+            navigate("/tours-list");
         }, 4000);
     }, []);
 

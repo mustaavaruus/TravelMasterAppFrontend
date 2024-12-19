@@ -47,21 +47,31 @@ const Question = (props) => {
     } 
 
     useEffect(() => {
+        localStorage.removeItem('userAnswers');
+        console.log("HERE!");
         getQuestion();
     }, []);
 
-    const onAnswerChoose = () => {
+    const onAnswerChoose = (id) => {
+
+
         console.log("choosed!");
+        console.log(id);
         setDisabled(false);
+        var userAnswers = JSON.parse(localStorage.getItem('userAnswers')) ?? [];
+        userAnswers.push({answerId: id});
+        localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+        console.log(JSON.parse(localStorage.getItem('userAnswers') ?? []));
+        
     }
 
 
     return (
         <div className={s.wrapper}>
             <div>
-                <p>Вопрос № {number} {question?.questionText}</p>
+                <p>Вопрос № {number} {question?.question?.text}</p>
                 {
-                    question?.imageTexts?.map((d, i) => <Answer onClick={onAnswerChoose} answerText={d} />)
+                    question?.answers?.map((d, i) => <Answer onClick={onAnswerChoose} answer={d} />)
                 }
                 <div className={s.btnWrapper}>
                     <ButtonCustom text={"Далее"} onClick={nextQuestion}  />

@@ -18,16 +18,19 @@ const ToursList = (props) => {
     const navigator = useNavigate();
 
     const getQuestion = () => {
+        var userAnswers = JSON.parse(localStorage.getItem('userAnswers')) ?? [];
         var token = JSON.parse(localStorage.getItem('user')).accessToken;
         axios({
-            method: 'get',
+            method: 'post',
             url: 'http://localhost:5024/api/Tour/get/all',
             headers: {
                 "Accept": "application/json",
                 "Content-Type": "application/json",
                 "accessToken": token,
-            }
+            },
+            data: {answers: userAnswers}
         }).then((data) => {
+            console.log(data.data);
             setTours(data.data);
             //localStorage.setItem('user', JSON.stringify(user.data));
             //navigator("/welcome");

@@ -7,19 +7,19 @@ import { Check } from 'react-bootstrap-icons';
 
 const Answer = (props) => {
 
-    const [answerText, setAnswerText] = useState(props.answerText ?? []);
+    const [answer, setAnswer] = useState(props.answer ?? []);
     const [checked, setChecked] = useState(props.checked);
     const [radio, setRadio] = useState(false);
 
     useEffect(() => {
-        setAnswerText(props.answerText);
+        setAnswer(props.answer);
         setChecked(props.checked);
-        console.log(props.answerText);
-    }, [props.answerText, props.checked]);
+        console.log(props.answer);
+    }, [props.answer, props.checked]);
 
     const onChange = (e) => {
         if (!!props.onClick) {
-            props.onClick();
+            props.onClick(answer?.id);
         }
     }
 
@@ -37,7 +37,7 @@ const Answer = (props) => {
                 </div>
             </div>
             <div className={s.right}>
-                {<Image src={answerText} className={s.imgWrapper}/>}
+                {<Image src={answer.image} className={s.imgWrapper}/>}
             </div>
         </div>
     );
